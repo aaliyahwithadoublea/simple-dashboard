@@ -1,70 +1,96 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# UserList Component
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The `UserList` component is a React-based interface designed to display and manage a list of users. It connects to a GraphQL API to fetch user data and includes features for search, sorting, and pagination. The component also features a modal for displaying detailed user information.
 
-### `npm start`
+## Thought Process
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Component Purpose: 
+   - The component’s goal is to provide an interactive interface for user data, allowing search, sorting, and pagination.
+   - Users can also view detailed information through a modal.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. State Management:
+   - Search: Added debouncing to the search input to optimize performance and minimize API requests.
+   - Sort: Implemented sorting options by name and company, with toggling between ascending and descending order.
+   - Pagination: Included controls for navigating between pages of user data.
+   - Modal: Managed modal visibility and user selection for displaying detailed information.
 
-### `npm test`
+3. Debouncing: 
+   - Implemented debouncing to handle the search input efficiently, reducing the frequency of API calls.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Error Handling: 
+   - Added loading and error states to give user feedback during data fetching.
 
-### `npm run build`
+5. Styling: 
+   - Used Tailwind CSS for styling to ensure a clean, responsive design.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup Instructions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js (v14 or later)
+- npm or yarn
+- A GraphQL API endpoint for user data
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the Repository:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   git clone https://github.com/your-username/userlist-component.git
+   cd userlist-component
+  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install Dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  
+   npm install
+   # or
+   yarn install
+  
+3. Setup Environment Variables:
 
-## Learn More
+   Create a `.appoloClient.js` file in the root directory and add your GraphQL API endpoint:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   REACT_APP_GRAPHQL_ENDPOINT=https://your-graphql-endpoint.com/graphql
+   
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Start the Development Server:
 
-### Code Splitting
+   
+   npm start
+   # or
+   yarn start
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   The application will be available at `http://localhost:3000`.
 
-### Analyzing the Bundle Size
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Search: Type in the search bar to filter users by name or email. The search includes debouncing for improved performance.
+- Sort: Select sorting criteria from the dropdown and toggle the sort order with the button.
+- Pagination: Navigate through pages of user data using the Previous and Next buttons.
+- View Details: Click on a user’s name to open a modal with detailed user information.
 
-### Making a Progressive Web App
+## Assumptions and Decisions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. API Structure:
+   - Assumed the GraphQL API supports search, sort, and pagination through the `users` query.
+2. Debouncing:
+   - Chose a 500ms debounce delay to balance responsiveness and performance.
+3. Pagination Handling:
+   - Implemented basic pagination controls. More advanced pagination features can be added if needed.
+4. Error Handling:
+   - Basic error and loading states implemented. Expand error handling based on specific API responses if necessary.
+5. Styling:
+   - Used Tailwind CSS for styling. Ensure Tailwind CSS is configured properly in your project.
 
-### Advanced Configuration
+## Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Advanced Search: Implement additional search filters and options.
+- Better Pagination: Add page numbers and more advanced pagination logic.
+- Accessibility Improvements: Enhance accessibility features for a better user experience.
+- Testing: Add unit and integration tests to ensure component robustness.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
