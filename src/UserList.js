@@ -41,7 +41,7 @@ function UserList() {
     [] 
   );
 
-  // Handle search input
+  
   const handleInputChange = (e) => {
     const { value } = e.target;
     debouncedSearch(value);
@@ -80,7 +80,7 @@ function UserList() {
     user.name.toLowerCase().includes(search.toLowerCase()) || 
     user.email.toLowerCase().includes(search.toLowerCase())
   );
-  
+
   return (
     <div className="flex flex-col space-y-8 max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
       {/* Search Bar */}
@@ -88,7 +88,7 @@ function UserList() {
         <input
           type="text"
           placeholder="Search by name or email"
-          onChange={handleInputChange} // Use the debounced input handler
+          onChange={handleInputChange} 
           className="w-full p-4 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <svg className="absolute left-4 top-4 w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
