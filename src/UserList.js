@@ -88,7 +88,7 @@ function UserList() {
       </select>
       <button 
         onClick={() => setSortOrder(sortOrder === 'ASC' ? 'DESC' : 'ASC')}
-        className="p-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="p-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 ml-4"
       >
         Toggle Sort Order
       </button>
